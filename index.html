@@ -1,47 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>listeDynamique</title>
-	<link rel="stylesheet" href="css/style.css">
+	<title>Vinscene</title>
 </head>
 <body>
-<section>
-	<header>
-		<div class="logo">
-			<img src="img/logo.png" alt="logo vinscene"> <!--logo de la page-->
-		</div>
-	</header><!-- /header -->
-
-	<form method="post" action="">
-	<input type="text" name="numero" id="numero" />
-	<input type="text" name="participant" id="participant" />
-	<input type="text" name="test" id="classement	" />
-	<input type="button" onclick="ajouterLigne();" value="Enregistrer"/>
-</form>
-	<article class="table0">
-		<table id="tableau" border="1">
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td>MULOT Cyrille</td>
-					<td>3eme</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>MULOT Antoine</td>
-					<td>2eme</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>BRUNET Xavier</td>
-					<td>36eme</td>
-				</tr>
-	</article>
-
-
-</section>
-<script type="text/javascript" src="js/script.js"></script>
+	<div class="container">
+		<div class="row">
+    		<table class="table table-bordered">         
+                <thead> 
+                </thead> 
+                <tbody id="classement">
+                </tbody>          
+    		</table>
+        </div>
+        <form>
+            <input type="text" name="saisie">
+            <input type="button" name="saisie" value="recherche">
+        </form>
+    <script type="text/javascript" src="js/script.js" ></script>
 </body>
 </html>
