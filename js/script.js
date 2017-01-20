@@ -83,16 +83,49 @@ var liste2 =[[70,"MOSNIER Bernard",55],
 
 var tab = liste.concat(liste2); /*fusion des deux listes*/
 
-	
-		for(var i=0; i<= tab.length-1; i++){
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+	function afficherUnTableau(monTableau){
+		document.getElementById('classement').innerHTML="";
+		for(var i=0; i<= monTableau.length-1; i++){
 			var lignetab='<tr>'; // declare ma nouvelle ligne 
-			for(var x= 0; x<= tab[i].length-1; x++){
+			for(var x= 0; x<= monTableau[i].length-1; x++){
 				lignetab+='<td>'; // ajoute une colone a ma ligne
-				lignetab+=tab[i][x]; // ajoute a cette colone la valeur
+				lignetab+=monTableau[i][x]; // ajoute a cette colone la valeur
 				lignetab+='</td>';
 				//console.log(tab[i][x]); // ajoute dans la console la case 
 			}
 			lignetab+='</tr>';
 			//alert(tab[i]); affichage ligne du tableau.
 			document.getElementById('classement').innerHTML+=lignetab;
+		
 		}
+	}
+		///////////////////////////////////////////////////////////////////////
+		////////////////////////FONCTION RECHERCHE/////////////////////////////
+		///////////////////////////////////////////////////////////////////////
+
+function search(recherche, tableau=tab, type=2){
+	var resultat = new Array;
+
+	if(type!=0&&type!=2){
+		type="";
+		console.log("test");
+	}
+
+	for(i = 0; i <= tableau.length-1; i++){
+		if(recherche == tableau[i][type]){
+			resultat.push(tableau[i]);
+	}	
+		}
+	if(!resultat[0]){
+		resultat = [["",'pas trouvé',""]];
+	}
+
+	afficherUnTableau(resultat);
+
+};
+
+//////////////////////////////////////////////
+
+afficherUnTableau(tab);
