@@ -10,10 +10,14 @@
 <body>
 	<div class="container">
 		<div class="row">
-            <form class="navbar-form">           
+            <form name="formulaireRecherche" class="navbar-form" onsubmit="clique(); return false;">           
                 <input type="text" name="recherche" class="form-control">
-                <button name="rechercheok" class="btn btn-default">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Recherche</button>
+                <input type="radio" name="choixType" value="classement" class="radio-inline" checked="">
+                    <label>Classement</label>
+                <input type="radio" name="choixType" value="dossard" class="radio-inline">
+                    <label>Dossard</label>
+                <button type="submit" name="rechercheok" class="btn btn-default">
+                <span class="glyphicon glyphicon-search" aria-hidden="true" onclick="return false;"></span> Recherche</button>
             </form> 
     		<table class="table table-bordered col-md-12">  
                 <thead> 
