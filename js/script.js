@@ -110,10 +110,14 @@ function search(recherche, tableau=tab, type=2){
 
 	if(type!=0&&type!=2&&type!=10&&type!=11){
 		type="";
-		console.log("test ok");
 	}
 	if (type==10){
 		recherche = recherche.toUpperCase()+ " ";
+		type=1;
+	}
+	if (type==11){
+		recherche = " "+recherche.charAt(0).toUpperCase()+
+		recherche.substring(1).toLowerCase();
 		type=1;
 	}
 
@@ -137,7 +141,7 @@ function search(recherche, tableau=tab, type=2){
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////Nouvelle fonction (recherche)////////////////////////
+//////////////////////////////////////////////Fonction clique////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 function clique(){
 	var recherche = document.formulaireRecherche.recherche.value;
@@ -146,6 +150,8 @@ function clique(){
 		search(recherche, tab, 2);
 	}else if(type=='nom'){
 		search(recherche, tab, 10);
+	}else if(type=='prenom'){
+		search(recherche, tab, 11);	
 	}else{
 		search(recherche, tab, 0);
 	}
