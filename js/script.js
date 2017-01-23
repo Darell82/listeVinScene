@@ -108,16 +108,26 @@ var tab = liste.concat(liste2); /*fusion des deux listes*/
 function search(recherche, tableau=tab, type=2){
 	var resultat = new Array;
 
-	if(type!=0&&type!=2){
+	if(type!=0&&type!=2&&type!=10&&type!=11){
 		type="";
-		console.log("test");
+		console.log("test ok");
+	}
+	if (type==10){
+		recherche = recherche.toUpperCase()+ " ";
+		type=1;
 	}
 
-	for(i = 0; i <= tableau.length-1; i++){
-		if(recherche == tableau[i][type]){
-			resultat.push(tableau[i]);
+	for(i=0; i <= tableau.length-1; i++){
+		if(recherche==parseInt(recherche)){ //vérifie si recherche est un entier
+			if(recherche == tableau[i][type]){ //recherche un entier
+				resultat.push(tableau[i]);
+			}
+		}else{
+			if(tableau[i][type].indexOf(recherche)!=-1){ //recherche chaine de caractere
+				resultat.push(tableau[i]);
+			}
+		}
 	}	
-		}	
 	if(!resultat[0]){
 		resultat = [["",'pas trouvé',""]];
 	}
@@ -127,17 +137,23 @@ function search(recherche, tableau=tab, type=2){
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////Nouvelle fonction////////////////////////////////////
+//////////////////////////////////////////////Nouvelle fonction (recherche)////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 function clique(){
 	var recherche = document.formulaireRecherche.recherche.value;
 	var type = document.formulaireRecherche.choixType.value;
 	if (type=='dossard'){
 		search(recherche, tab, 2);
+	}else if(type=='nom'){
+		search(recherche, tab, 10);
 	}else{
 		search(recherche, tab, 0);
 	}
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////TRI ALPHABETIQUE/////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
